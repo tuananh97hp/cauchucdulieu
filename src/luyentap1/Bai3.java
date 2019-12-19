@@ -30,6 +30,9 @@ public class Bai3 {
                 dem = 1;
             }
         }
+        if (max < dem) {
+            max = dem;
+        }
         System.out.println(max);
         int[] result = new int[max];
         result[0] = test[0];
