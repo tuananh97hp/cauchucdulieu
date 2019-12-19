@@ -19,10 +19,12 @@ public class Bai11 {
         String[] result = new String[s.length];
 
         for (int i = 0; i < s.length; i++) {
-            String[] split = s[i].toLowerCase().split(" ");
+            String[] split = s[i].toLowerCase().trim().split(" ");
             result[i] = split[split.length - 1];
             for (int j = 0; j < split.length - 1; j++) {
-                result[i] += String.valueOf(split[j].charAt(0));
+                if (!split[j].equals("")) {
+                    result[i] += String.valueOf(split[j].charAt(0));
+                }
             }
             boolean ok = true;
             int dem = 1;

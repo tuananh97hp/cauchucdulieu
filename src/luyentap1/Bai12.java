@@ -17,10 +17,12 @@ public class Bai12 {
 
     public static void email(String[] s) {
         for (int i = 0; i < s.length; i++) {
-            String[] split = s[i].toLowerCase().split(" ");
+            String[] split = s[i].toLowerCase().trim().split(" ");
             String result = "";
             for (int j = 0; j < split.length; j++) {
-                result += split[j].substring(0,1).toUpperCase() + split[j].substring(1) + " ";
+                if (!split[j].equals("")) {
+                    result += split[j].substring(0,1).toUpperCase() + split[j].substring(1) + " ";
+                }
             }
             System.out.println(result);
         }

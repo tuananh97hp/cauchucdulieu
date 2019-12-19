@@ -4,7 +4,7 @@ import java.util.*;
 
 import static java.lang.Math.pow;
 
-public class Bai13 {
+public class Bai14 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int t = scanner.nextInt();
@@ -12,20 +12,19 @@ public class Bai13 {
         while (t-- > 1) {
             int n = scanner.nextInt();
             int k = scanner.nextInt();
-            int min = 0;
             int max = 0;
-            for (int i = 0; i < k; i++) {
-                min += pow(2, i);
+            for (int i = 0; i < n - k; i++) {
                 max += pow(2, (n - i - 1));
             }
-            for (int i = min; i <= max; i++) {
+            List<String> result;
+            for (int i = 0; i <= max; i++) {
                 String binary = Integer.toBinaryString(i);
+                int length = binary.length();
+                for (int j = 0; j < n - length; j++) {
+                    binary = "0" + binary;
+                }
                 if (check(binary, k)) {
-                    int length = binary.length();
-                    for (int j = 0; j < n - length; j++) {
-                        binary = "0" + binary;
-                    }
-                    System.out.println(binary);
+//                    result.add(binary);
                 }
             }
         }
@@ -34,7 +33,7 @@ public class Bai13 {
     public static boolean check(String b, int k) {
         int dem = 0;
         for (int i = 0; i < b.length(); i++) {
-            if (b.charAt(i) == 49) {
+            if (b.charAt(i) == 48) {
                 dem++;
             }
         }
